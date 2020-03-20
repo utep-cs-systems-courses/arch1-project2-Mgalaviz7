@@ -14,14 +14,14 @@ void led_update();
 
 void green_led_on();
 
+void green_led_off();
+
 void red_led_on();
 
-extern unsigned char red, green;
+void red_led_off();
 
-extern unsigned char green_on, red_on;
+void both_leds_on();
 
-extern unsigned char led_changed;
-
-
+void both_leds_off();
 
 #endif //include
