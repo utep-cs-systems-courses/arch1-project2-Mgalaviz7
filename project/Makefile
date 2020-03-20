@@ -20,15 +20,3 @@ load: lab2.elf
 
 clean:
 	rm -f *.o *.elf *~
-#	rm -rf lib h
-#
-#switches.c: switches.h
-
-#buzzer.c: buzzer.h
-
-#led.o: led.c led.h
-
-
-#interrupt.o: interrupt.s
-
-#sr.o: sr.s
