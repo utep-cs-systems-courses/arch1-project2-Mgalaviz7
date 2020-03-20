@@ -4,7 +4,7 @@
 #include "led.h"
 #include "buzzer.h"
 
-char SWITCH1,SWITCH2,SWITCH3,SWITCH4,SWITCH_STATE;
+char SWITCH1 , SWITCH2 , SWITCH3 , SWITCH4 , CURRENT_STATE , SWITCH_STATE;
 
 static char
 switch_update_interrupt_sense()
@@ -43,29 +43,26 @@ switch_interrupt_handler()
   SWITCH2 = (p2val & SW2) ? 0 : 1;
   SWITCH3 = (p2val & SW3) ? 0 : 1;
   SWITCH4 = (p2val & SW4) ? 0 : 1;
-
-  SWITCH_STATE=1;
   
   if(SWITCH1){
-    while(1){
-    green_led_on();
-    red_led_on();
-    green_led_on();
-    buzzer_set_period(0);
+    CURRENT_STATE = 1;
     or_sr(0x18);
-    }
   }
   if(SWITCH2){
-    red_led_on();
-    buzzer_set_period(0);
+    CURRENT_STATE = 2;
     or_sr(0x18);
   }
   if(SWITCH3){
-    buzzer_set_period(0);
+    CURRENT_STATE = 3;
     or_sr(0x18);
   }
   if(SWITCH4){
-    little_lamb();
+    CURRENT_STATE = 4;
+    //little_lamb();
+    or_sr(0x18);
+  }
+  else{
+    CURRENT_STATE = 0;
     or_sr(0x18);
   }
   led_update();

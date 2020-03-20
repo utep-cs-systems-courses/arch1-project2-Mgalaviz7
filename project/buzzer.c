@@ -31,7 +31,13 @@ buzzer_set_period(short cycles)
   TA0CCR0 = cycles;
   TA0CCR1 = cycles >> 5;
 }
-
+/*
+  This method is always executed when the button number 4 is pushed.
+  It essentially plays the notes from Mary Had A Littlie Lamb Lulliaby.
+  The notes frequencies are defined at the top of the file which is then 
+  passed as a parm to the method set buzzer_set_period which essentially changes 
+  the tone of the buzzer.
+ */
 void
 little_lamb()
 {
@@ -104,18 +110,21 @@ little_lamb()
   buzzer_set_period(0);
   note_duration(2);
 }
-
+/*
+  This method is essentialy the length of how long the buzzer should
+  sound for a specfic frequencey at a time.
+ */
 void
 note_duration(int rest){
 
   switch (rest)
     {
-      //quater note~
+      //half note~
       case 1:
 	__delay_cycles(16000000/2);
       break;
 
-      //half note~
+      //quater note~
       case 2:
 	__delay_cycles(16000000/8);
       break;
@@ -132,7 +141,10 @@ note_duration(int rest){
   }
 }
 
-
+/*
+  This method is essentialy the length of how long the buzzer should
+  sound for a specfic frequencey at a time.
+ */
 void
 little_lamb_notes(){
   /*

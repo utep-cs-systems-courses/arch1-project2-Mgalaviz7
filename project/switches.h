@@ -13,6 +13,6 @@ void switches_init();
 void switch_interrupt_handler();
 
 //void green_led_on();
-extern char SWITCH1 , SWITCH_STATE;
+extern char SWITCH1 , SWITCH2 , SWITCH3 , SWITCH4 , CURRENT_STATE , SWITCH_STATE;
 
 #endif //included

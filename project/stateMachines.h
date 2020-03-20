@@ -1,8 +1,8 @@
 #ifndef stateMachine_included
 #define stateMachine_included
 
-void state();
+void states();
 
-char  count_to_3();
+void count_to_3();
 
 #endif // included
