@@ -4,7 +4,7 @@
 #include "led.h"
 #include "buzzer.h"
 
-char SWITCH1 , SWITCH2 , SWITCH3 , SWITCH4 , CURRENT_STATE , SWITCH_STATE;
+char SWITCH1 , SWITCH2 , SWITCH3 , SWITCH4 , CURRENT_STATE;
 
 static char
 switch_update_interrupt_sense()
@@ -34,7 +34,11 @@ switches_init()      /* setup switches */
 
   led_update();
 }
-
+/*
+  This method is always actiave waiting to be interputed by the push of a button.
+  If any button is pressed it will update the current state that you are currently in.
+  By default if no button is pushed the state will be set to 0 a.k.a "ideal" waiting for a button to be pressed.
+ */
 void
 switch_interrupt_handler()
 {
