@@ -36,8 +36,9 @@ Does what state two is described to do but dims the leds by repeatedaly
 turning them off and on this occurs when button 3 is pushed.
 
 `SPEED it Up (State 3)`
-Increases the speed at which the leds blink when count to 3 every time button
-3 is pushed until the led can not blink any faster and stay at a all out glowing of the leds.
+Increases the speed at which the leds blinks starting from the normal blink
+speed to a rapid blink of leds. Once it reaches the fastes speed it updates
+the speed back to normal and contiunes the processes until state is changed.
 
 `Little Lamb (State 4)`
 When Button 4 is pressed it will play the Little Lamb Lullaby as well as breafly interrupt the state it is currently on and plays the medlody and then
