@@ -23,8 +23,9 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
 void
 __interrupt_vec(WDT_VECTOR) WDT() {
   static char blink_count =0;  
-    if(++blink_count == 100){
+    if(++blink_count == speed){
       states();
+    
       blink_count=0;
     }
 }
