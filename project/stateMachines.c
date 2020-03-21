@@ -6,6 +6,7 @@
 #include "buzzer.h"
 
 static int blink_flag;
+char speed = 125;
 /*
   This method is always toggled and is used to keep the current state
   of the state machine. Each state changes due to the time a button is
@@ -37,6 +38,11 @@ states()
     break;
 
   case 3:
+    speed -= 1;
+    if(speed < 1){
+      speed = 125;
+    }
+    count_to_3();
     state = 3;
     break;
 
