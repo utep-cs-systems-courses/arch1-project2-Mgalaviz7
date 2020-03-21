@@ -25,7 +25,7 @@ Can be seen as the ideal state which essentially
 gives the user conformation that the program has loaded. State 0 is just the
 green led turned on until a button is pushed to switch the state of the toy.
 
-`Count-to-3 State 1`
+`Count-to-3 (State 1)`
 By the push of button 1 from right to left it starts the first state. While in
 this state it blinks the lights in a syncronus order from 0 to 3 in a binary
 fashion.The glow of the red led repesenting the value of 1 and green led
