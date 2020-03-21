@@ -23,7 +23,9 @@ led_update()
 }
 
 /* 
-   All these methods are mostly the same and for the most part these methods just turn on and off the leds by setting either green_on or red_on to a 1 or 0.
+   All these methods are mostly the same and for the most 
+   part these methods just turn on and off the leds by setting 
+   either green_on or red_on to a 1 or 0.
  */
 
 void
