@@ -17,18 +17,21 @@ char speed = 125;
 void
 states()
 {
-  static char state = 0 ;
+  char state = CURRENT_STATE ;
+  
   
   switch (state) {
   case 0:
     /* Is currently shown that it is at state 0 and ready to go*/
     green_led_on();   
-    state = CURRENT_STATE;
+    state = 0;
     break;
 
   case 1:
     blink_flag = 0;
+    //state_1(CURRENT_STATE);
     count_to_3();
+    state = 1;
     break;
 
   case 2:
