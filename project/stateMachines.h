@@ -5,4 +5,6 @@ void states();
 
 void count_to_3();
 
+extern char speed;
+
 #endif // included

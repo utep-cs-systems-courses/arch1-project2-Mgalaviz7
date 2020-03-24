@@ -6,12 +6,12 @@ LDFLAGS	       = -L/opt/ti/msp430_gcc/include
 
 #switch the complier (for the internal make rules)
 CC	       = msp430-elf-gcc
-AS	       = msp430-eld-as
+AS	       = msp430-elf-as
 
 all: lab2.elf
 
 #additional rules for files
-lab2.elf: ${COMMON_OBJECTS}  lab2.o stateMachines.o switches.o buzzer.o led.o p2_interrupt_handler.o  ../demos/lib/libTimer.a
+lab2.elf: ${COMMON_OBJECTS}  lab2.o stateMachines.o switches.o buzzer.o led.o state_1.o p2_interrupt_handler.o  ../demos/lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 

@@ -29,7 +29,7 @@ states()
 
   case 1:
     blink_flag = 0;
-    //state_1(CURRENT_STATE);
+    //state = state_1(CURRENT_STATE);
     count_to_3();
     state = 1;
     break;
