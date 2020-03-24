@@ -17,14 +17,14 @@ char speed = 125;
 void
 states()
 {
-  char state = CURRENT_STATE ;
-  
-  
-  switch (state) {
+ static char state = 0 ;
+ //static char hold = 0; 
+
+ switch (state) {
   case 0:
     /* Is currently shown that it is at state 0 and ready to go*/
     green_led_on();   
-    state = 0;
+    state = CURRENT_STATE;
     break;
 
   case 1:
@@ -53,7 +53,7 @@ states()
     little_lamb();
     state = 4;
     break;
-  }
+ }
 }
 
 /*
