@@ -37,37 +37,56 @@ switches_init()      /* setup switches */
 /*
   This method is always actiave waiting to be interputed by the push of a button.
   If any button is pressed it will update the current state that you are currently in.
-  By default if no button is pushed the state will be set to 0 a.k.a "ideal" waiting for a button to be pressed.
+  By default if no button is pushed the state will be set to 0 a.k.a "ideal" 
+  waiting for a button to be pressed.
  */
 void
 switch_interrupt_handler()
 {
+  char hold = 0;
   char p2val = switch_update_interrupt_sense();
   SWITCH1 = (p2val & SW1) ? 0 : 1;
   SWITCH2 = (p2val & SW2) ? 0 : 1;
   SWITCH3 = (p2val & SW3) ? 0 : 1;
   SWITCH4 = (p2val & SW4) ? 0 : 1;
   
-  if(SWITCH1){
-    CURRENT_STATE = 1;
-    or_sr(0x18);
-  }
-  if(SWITCH2){
-    CURRENT_STATE = 2;
-    or_sr(0x18);
-  }
-  if(SWITCH3){
-    CURRENT_STATE = 3;
-    or_sr(0x18);
-  }
-  if(SWITCH4){
-    CURRENT_STATE = 4;
-    //little_lamb();
-    or_sr(0x18);
-  }
-  else{
-    CURRENT_STATE = 0;
-    or_sr(0x18);
-  }
+  if (SWITCH1) /* button 1 pressed */
+    {
+      hold = 1;
+      CURRENT_STATE = 1;
+      or_sr(0x18);
+    }
+  if (SWITCH2) /* button 2 pressed */
+    {
+      hold = 2;
+      CURRENT_STATE = 2;
+      or_sr(0x18);
+    }
+  if (SWITCH3) /* button 3 pressed */
+    {
+      hold = 3;
+      CURRENT_STATE = 3;
+      or_sr(0x18);
+    }
+  if (SWITCH4) /* button 4 pressed */
+    {
+      hold = 4;
+      CURRENT_STATE = 4;
+      //little_lamb();
+      or_sr(0x18);
+    }
+  else
+    {
+      if ( hold !=1 | hold !=2 | hold !=3 | hold !=4 )
+	{
+	  hold = 0;
+	  or_sr(0x18);
+	}
+      CURRENT_STATE = hold;
+      or_sr(0x18);
+    }
+  
+  CURRENT_STATE = hold;
+  or_sr(0x18);
   led_update();
 }

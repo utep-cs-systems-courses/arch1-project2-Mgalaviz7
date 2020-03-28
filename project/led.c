@@ -16,18 +16,17 @@ void
 led_update()
 {
   char ledFlags = redVal[red_on] | greenVal[green_on];
-
+  
   P1OUT &=(0xff^LEDS) | ledFlags;
-
+  
   P1OUT |= ledFlags;
 }
 
 /* 
    All these methods are mostly the same and for the most 
    part these methods just turn on and off the leds by setting 
-   either green_on or red_on to a 1 or 0.
- */
-
+   either green_on or red_on to a 1 or 0. Followed by the led pudate method call
+*/
 void
 green_led_on()
 {
@@ -71,4 +70,3 @@ both_leds_off()
   red_on = 0;
   led_update();
 }
-

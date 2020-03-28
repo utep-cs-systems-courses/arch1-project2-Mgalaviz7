@@ -2,17 +2,13 @@
 #include "libTimer.h"
 #include "buzzer.h"
 
-#define _A 1760
+/* Frequencies for Notes */
+#define _A 1760 
 #define _G 3135
 #define _F 2793
 #define _C 2093
-
 #define _D 1174
 #define _E 1318
-
-static int *little_lamb_song;
-
-#define SONG_LEN 27
 
 void
 buzzer_init()
@@ -112,7 +108,9 @@ little_lamb()
 }
 /*
   This method is essentialy the length of how long the buzzer should
-  sound for a specfic frequencey at a time.
+  sound for a specfic frequencey at a time. The parameter rest is the length 
+  at which the length will be played at. Side note the lengths of the notes 
+  are not percies.
  */
 void
 note_duration(int rest){
@@ -134,58 +132,9 @@ note_duration(int rest){
 	__delay_cycles(16000000/1);
       break;
 
-      //last Note
+      //last Note~
       case 4:
 	__delay_cycles(17000000);
       break;
   }
-}
-
-/*
-  This method is essentialy the length of how long the buzzer should
-  sound for a specfic frequencey at a time.
- */
-void
-little_lamb_notes(){
-  /*
-  little_lamb_song = (int *)malloc(sizeof(int) * (SONG_LEN + 1));
-
-  little_lamb_song[0] = _A;
-  little_lamb_song[1] = _A;
-  little_lamb_song[2] = _A;
-  little_lamb_song[3] = _A;
-  
-  little_lamb_song[4] = _A;
-  little_lamb_song[5] = _A;
-  little_lamb_song[6] = _A;
-  little_lamb_song[7] = _A;
- 
-  little_lamb_song[8] = _A;
-  little_lamb_song[9] = _A;
-  little_lamb_song[10] = _A;
-  little_lamb_song[11] = _A;
-
-  little_lamb_song[12] = _A;
-  little_lamb_song[13] = _A;
-  little_lamb_song[14] = _A;
-  little_lamb_song[15] = _A;
-
-  little_lamb_song[16] = _A;
-  little_lamb_song[17] = _A;
-  little_lamb_song[18] = _A;
-  little_lamb_song[19] = _A;
-
-  little_lamb_song[20] = _A;
-  little_lamb_song[21] = _A;
-  little_lamb_song[22] = _A;
-  little_lamb_song[23] = _A;
-
-  little_lamb_song[24] = _A;
-  little_lamb_song[25] = _A;
-  little_lamb_song[26] = _A;
-
-  little_lamb_song[27] = "/0";
-  
-  }
-  */
 }

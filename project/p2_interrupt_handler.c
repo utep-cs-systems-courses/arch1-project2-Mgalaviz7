@@ -9,11 +9,13 @@
   in switches.c to update the state.
 */
 void
-__interrupt_vec(PORT2_VECTOR) Port_2(){
-  if (P2IFG & SWITCHES) {
-    P2IFG &= ~SWITCHES;
-    switch_interrupt_handler();
-  }
+__interrupt_vec(PORT2_VECTOR) Port_2()
+{
+  if (P2IFG & SWITCHES)
+    {
+      P2IFG &= ~SWITCHES;
+      switch_interrupt_handler();
+    }
 }
 /*
   This method is costently being run and controls the 
@@ -21,11 +23,12 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
   as well keep the current state until interrupted by a button.
 */
 void
-__interrupt_vec(WDT_VECTOR) WDT() {
+__interrupt_vec(WDT_VECTOR) WDT()
+{
   static char blink_count =0;  
-    if(++blink_count == speed){
-      states();
-    
+  if (++blink_count == speed)
+    {
+      states();    
       blink_count=0;
     }
 }

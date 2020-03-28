@@ -5,19 +5,22 @@
 #include "led.h"
 
 
-
+/*
+  This is the main method where everything is inizalized
+  and is ready for interuptes from switches.
+ */
 int
 main(void)
 {
-  configureClocks();
+  configureClocks(); /* Initialize Clock */
 
-  switches_init();
+  switches_init(); /* Initialize Switches */
 
-  buzzer_init();
+  buzzer_init(); /* Initialize Buzzer*/
 
-  led_init();
+  led_init(); /* Initialize Leds */
 
-  enableWDTInterrupts();
+  enableWDTInterrupts(); /* Initialize Interrupts */
 
   or_sr(0x18);
 }

@@ -1,7 +1,7 @@
 # makefile
 COMMON_OBJECTS =
 CPU 	       = msp430g2553
-CFLAGS	       = -mmcu=${CPU} -I../demos/h -I../h
+CFLAGS	       = -mmcu=${CPU} -I../demos/h
 LDFLAGS	       = -L/opt/ti/msp430_gcc/include
 
 #switch the complier (for the internal make rules)
