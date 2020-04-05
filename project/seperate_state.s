@@ -4,7 +4,7 @@
 	.text
 	.global speed
 	.global state
-	
+	.global states
 state:
 	.word 0
 
