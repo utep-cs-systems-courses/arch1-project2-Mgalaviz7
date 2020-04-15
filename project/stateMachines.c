@@ -4,8 +4,9 @@
 #include "led.h"
 #include "switches.h"
 #include "buzzer.h"
+#include "state_transition_assembly.h"
 
-static int dim_flag;
+int dim_flag = 0;
 char speed = 125;
 
 /*
@@ -14,26 +15,27 @@ char speed = 125;
   pushed and remains in that state till another button is pushed.
 */
 void
-states()
-{ 
+states_transition()
+{
+  states();    
+  /*
   char state = CURRENT_STATE;
+
   switch (state)
     {
       /* STATE_0
 	 While in STATE_0 it will turn on the green led. 
-      */
+      
     case 0:
       green_led_on();   
       state = 0;
-      break;
-      
+      break;      
       /* STATE_1
 	 While in STATE_1 it will call the method count_to_3 
 	 which will blink the leds in a numerical fashion.
-      */
+      
     case 1:
       dim_flag = 0;
-      //state = state_1(CURRENT_STATE);
       count_to_3();
       state = 1;
       break;
@@ -41,7 +43,7 @@ states()
       /* STATE_2
 	 While in STATE_2 it will set the dim led flag to true 
 	 and will dim the lights as it counts to 3.
-      */
+      
     case 2:
       dim_flag = 1;
       count_to_3();
@@ -52,7 +54,7 @@ states()
 	 While in STATE_3 it will increase the speed at which 
 	 leds a blinked an restarts the speed and processes once it reaches 
 	 the fastes speed possible.
-      */     
+         
     case 3:
       speed -= 1;
       if (speed < 1)
@@ -66,12 +68,12 @@ states()
       /* STATE_4
 	 While in STATE_4 it will call the method little lamb 
 	 which will play the melody.
-      */
+      
     case 4:
       little_lamb();
       state = 4;
       break;
- }
+  }*/
 }
 
 /*
@@ -83,7 +85,7 @@ states()
 */
 void
 count_to_3()
-{  
+{
   static char state = 0;
   
   switch (state)
@@ -125,7 +127,7 @@ count_to_3()
       else
 	{
 	  red_led_off();
-	  green_led_on();
+	  green_led_on();	  
 	}
       state = 3;
       break;

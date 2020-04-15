@@ -28,7 +28,7 @@ __interrupt_vec(WDT_VECTOR) WDT()
   static char blink_count =0;  
   if (++blink_count == speed)
     {
-      states();    
+      states_transition();    
       blink_count=0;
     }
 }

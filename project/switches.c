@@ -3,6 +3,8 @@
 #include "switches.h"
 #include "led.h"
 #include "buzzer.h"
+#include "state_transition_assembly.h"
+
 
 char SWITCH1 , SWITCH2 , SWITCH3 , SWITCH4 , CURRENT_STATE;
 
